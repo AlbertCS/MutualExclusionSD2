@@ -11,7 +11,8 @@ import pytz
 Bucket_name= 'phyto.sd'
 N_SLAVES = 50
 #Temps a esperar
-t = 3
+t = 1
+ts = 3
 
 
 def myFunc(e):
@@ -93,7 +94,7 @@ def slave(id, x, ibm_cos):
     fileFound = False
     while (fileFound == False):
         # Esperem
-        time.sleep(t)
+        time.sleep(ts)
         # Agafem els fitxers del cos
         content=ibm_cos.list_objects_v2(Bucket=Bucket_name)
         # Busquem el numero de fitxers
