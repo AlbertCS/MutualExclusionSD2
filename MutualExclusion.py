@@ -115,9 +115,9 @@ def slave(id, x, ibm_cos):
             if(nom == ('write_'+str(id))):
                 fileFound = True
     
-    # 3. If write_{id} is in COS: get result.txt, append {id}, and put back to COS result.txt
+    # 3. If write_{id} is in COS: get result.txt, append {id}, and put back to COS result.json
     result_serialized = ibm_cos.get_object(Bucket=Bucket_name, Key=keyResult)["Body"].read()
-    # Deserialitzem el fitxer result.txt
+    # Deserialitzem el fitxer result.json
     result = json.loads(result_serialized)
     # Afegim la id
     result.append(id)
